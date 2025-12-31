@@ -7,3 +7,6 @@ vim.opt.relativenumber = true
 -- vim.opt.wildmenu = true
 -- vim.opt.wildmode = "longest:full,full"
 -- vim.opt.wildoptions = "pum"
+vim.g.root_spec = {
+  { ".git", "foundry.toml", "package.json" },
+}
