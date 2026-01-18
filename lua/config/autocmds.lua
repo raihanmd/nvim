@@ -28,3 +28,27 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "SolidityNatSpecTag", {
+      fg = "#f9e2af",
+      bold = true,
+    })
+  end,
+})
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "solidity",
+  callback = function()
+    vim.cmd([[
+      syntax match SolidityNatSpecTag "@param\|@dev\|@notice\|@return\|@title\|@author"
+    ]])
+  end,
+})
+
+vim.api.nvim_set_hl(0, "SolidityNatSpecTag", {
+  fg = "#f9e2af",
+  bold = true,
+})
