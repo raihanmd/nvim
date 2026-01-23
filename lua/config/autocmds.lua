@@ -52,3 +52,17 @@ vim.api.nvim_set_hl(0, "SolidityNatSpecTag", {
   fg = "#f9e2af",
   bold = true,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
+  pattern = { "typescript" },
+  callback = function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.removeUnused.ts" },
+        diagnostics = {},
+      },
+    })
+  end,
+})
