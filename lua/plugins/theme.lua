@@ -1,0 +1,1 @@
+/home/raihanmd/.config/omarchy/current/theme/neovim.lua
